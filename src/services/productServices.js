@@ -1,4 +1,3 @@
-// const { getData, updateData, deleteData, saveData } = require('../modules/prodData')
 const ProductDaos = require("../models/daos/productsDaos");
 
 let instanceProdService = []
@@ -13,7 +12,7 @@ class productServices {
         if (!instanceProdService) {
             instanceProdService = new productServices()
         }
-        return instanceProdService
+        return instanceProdService;
     }
 
     async getService() {
