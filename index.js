@@ -14,6 +14,10 @@ const {
   emitMsjController,
   saveMsjController,
 } = require("./src/controllers/msjControllers");
+//Graphql
+const { graphqlHTTP } = require("express-graphql");
+const schemaGraphql = require("./src/routes/graphql/schema");
+const rootGraphQL = require("./src/routes/graphql/root");
 
 // Server
 const http = require("http");
@@ -35,6 +39,16 @@ app.engine(
     layoutsDir: __dirname + "/views/layouts",
     defaultLayout: "index",
     partialsDir: __dirname + "/views/partials",
+  })
+);
+
+//Graphql
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema: schemaGraphql,
+    rootValue: rootGraphQL,
+    graphiql: true,
   })
 );
 

@@ -6,13 +6,14 @@ class ProductDaos {
     this.value = Math.random();
   }
 
-  //SINGLETON
+  // SINGLETON
   static getInstance() {
     if (!instanceProdDaos) {
       instanceProdDaos = new ProductDaos();
     }
     return instanceProdDaos;
   }
+  // SINGLETON
 
   async getData() {
     let data = await productDAO.getAll();
